@@ -1,6 +1,6 @@
 <launch>
 
-<arg name="device"     default="/dev/video1" />
+<arg name="device"     default="/dev/video0" />
 <arg name="img_width"  default="1920" />
 <arg name="img_height" default="1080" />
 <arg name="top_crop"   default="540"  />

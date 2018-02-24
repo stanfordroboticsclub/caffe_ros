@@ -1,6 +1,6 @@
 <launch>
-    <arg name="prototxt_path"   default="/home/nvidia/models/segnet/deploy.prototxt" />
-    <arg name="model_path"      default="/home/nvidia/models/segnet/deploy.caffemodel" />
+    <arg name="prototxt_path"   default="/models/pretrained/FCN-Alexnet-Cityscapes-HD/deploy.prototxt" />
+    <arg name="model_path"      default="/models/pretrained/FCN-Alexnet-Cityscapes-HD/deploy.caffemodel" />
     <arg name="output_layer"    default="score_fr_21classes" />
     <arg name="use_fp16"        default="true" />
     <arg name="rate_hz"         default="30" />
@@ -8,9 +8,9 @@
     <arg name="no_viz"       default="false" />
     <arg name="from_image"   default="false" />
     <arg name="from_bag"     default="false" />
-    <arg name="image_path"   default="/home/nvidia/jetson-UGV/test-images/1920x540/input-image.png" />
+    <arg name="image_path"   default="/home/nvidia/catkin_ws/src/caffe_ros/segnet_reference.jpg" />
 
-    <arg name="colors_file"     default="$(optenv HOME /home/nvidia)/models/segnet/class_colors.lut" />
+    <arg name="colors_file"     default="/home/nvidia/catkin_ws/src/caffe_ros/output_view/color_mapping.lut" />
     
     <!-- Choose source data -->
     <group if="$(arg from_image)">
@@ -21,7 +21,7 @@
     </group>
     <group unless="$(arg from_bag)">
         <group unless="$(arg from_image)">
-    	       <include file="$(find caffe_ros)/launch/gscam.launch" />
+    	       <include file="$(find opencv_test)/launch/gscam.launch" />
 	</group>
     </group>
 
